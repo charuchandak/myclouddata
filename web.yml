@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: install pkgs
+      yum:
+        name: ['httpd','php', 'git']
+        state: present
+    - name: Start service httpd, if not started
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
